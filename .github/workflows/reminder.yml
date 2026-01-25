@@ -1,13 +1,19 @@
-name: Reminder Test
+name: 10-day-ish Reminder
 
 on:
   schedule:
     - cron: '0 0 1,11,21 * *'
-  workflow_dispatch:
 
 jobs:
-  test:
+  remind:
     runs-on: ubuntu-latest
     steps:
-      - name: Say hello
-        run: echo "cron works"
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'コード更新リマインド',
+              body: 'PayPayのURLの更新タイミングです。',
+            })
