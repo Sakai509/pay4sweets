@@ -1,0 +1,12 @@
+name:Reminder Test
+
+on:
+    schedule:
+        - cron: '0 0 1,11,21 * *'
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Say hello
+              run: echo "cron works"
