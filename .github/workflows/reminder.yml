@@ -3,6 +3,7 @@ name: 10-day-ish Reminder
 on:
   schedule:
     - cron: '0 0 1,11,21 * *'
+  workflow_dispatch: 
 
 jobs:
   remind:
