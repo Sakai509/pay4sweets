@@ -3,6 +3,7 @@ name: Reminder Test
 on:
   schedule:
     - cron: '0 0 1,11,21 * *'
+  workflow_dispatch:
 
 jobs:
   test:
@@ -10,4 +11,3 @@ jobs:
     steps:
       - name: Say hello
         run: echo "cron works"
-  workflow_dispatch:
